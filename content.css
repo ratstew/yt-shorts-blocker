@@ -1,0 +1,49 @@
+/*
+ * Hides Shorts UI. Every rule is scoped to html.ysb-on, which content.js
+ * adds or removes depending on the on/off switch in the popup.
+ * YouTube changes its markup from time to time, so selectors may need updates.
+ */
+
+/* Shorts shelves on home, search, subscriptions and watch pages */
+html.ysb-on ytd-rich-shelf-renderer[is-shorts],
+html.ysb-on ytd-reel-shelf-renderer,
+html.ysb-on ytd-shorts,
+html.ysb-on ytm-reel-shelf-renderer,
+html.ysb-on ytm-shorts-lockup-view-model,
+html.ysb-on ytm-shorts-lockup-view-model-v2,
+html.ysb-on ytd-reel-item-renderer,
+html.ysb-on grid-shelf-view-model:has(a[href^="/shorts/"]) {
+  display: none !important;
+}
+
+/* Individual Shorts mixed into normal video lists */
+html.ysb-on ytd-rich-item-renderer:has(a[href^="/shorts/"]),
+html.ysb-on ytd-video-renderer:has(a[href^="/shorts/"]),
+html.ysb-on ytd-grid-video-renderer:has(a[href^="/shorts/"]),
+html.ysb-on ytd-compact-video-renderer:has(a[href^="/shorts/"]),
+html.ysb-on yt-lockup-view-model:has(a[href^="/shorts/"]),
+html.ysb-on ytm-video-with-context-renderer:has(a[href^="/shorts/"]),
+html.ysb-on ytm-compact-video-renderer:has(a[href^="/shorts/"]) {
+  display: none !important;
+}
+
+/* Shorts entry in the sidebar and the collapsed mini sidebar */
+html.ysb-on ytd-guide-entry-renderer:has(a[href^="/shorts"]),
+html.ysb-on ytd-guide-entry-renderer:has([title="Shorts"]),
+html.ysb-on ytd-guide-entry-renderer:has([aria-label="Shorts"]),
+html.ysb-on ytd-mini-guide-entry-renderer:has(a[href^="/shorts"]),
+html.ysb-on ytd-mini-guide-entry-renderer:has([title="Shorts"]),
+html.ysb-on ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+html.ysb-on ytm-pivot-bar-item-renderer:has(.pivot-shorts) {
+  display: none !important;
+}
+
+/* Elements marked by the fallback scan in content.js */
+html.ysb-on [data-ysb-hidden] {
+  display: none !important;
+}
+
+/* "Shorts" tab on channel pages */
+html.ysb-on yt-tab-shape[tab-title="Shorts"] {
+  display: none !important;
+}
